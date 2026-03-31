@@ -394,3 +394,48 @@ transition:0.3s;
 border-color:#22c55e;
 transform:scale(1.05);
 }
+
+.thankyou-section{
+display:flex;
+justify-content:center;
+align-items:center;
+height:80vh;
+text-align:center;
+}
+
+.thankyou-container{
+background:#1e293b;
+padding:40px;
+border-radius:10px;
+border:1px solid #334155;
+box-shadow:0 0 20px #22c55e;
+}
+
+.thankyou-container h1{
+color:#22c55e;
+margin-bottom:20px;
+text-shadow:0 0 10px #22c55e;
+}
+
+.thankyou-container p{
+color:#cbd5f5;
+margin-bottom:20px;
+font-size:18px;
+}
+
+.thankyou-container .btn{
+padding:12px 25px;
+background:#22c55e;
+color:black;
+font-weight:bold;
+border-radius:6px;
+text-decoration:none;
+box-shadow:0 0 10px #22c55e;
+transition:0.3s;
+}
+
+.thankyou-container .btn:hover{
+background:#16a34a;
+box-shadow:0 0 20px #22c55e,0 0 40px #22c55e;
+transform:scale(1.05);
+}
