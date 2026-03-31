@@ -263,25 +263,26 @@ background:#334155;
 /* Hero Banner */
 
 .hero{
-height:400px;
-display:flex;
-align-items:center;
-justify-content:center;
 text-align:center;
-background:linear-gradient(135deg,#020617,#0f172a);
+padding:120px 20px;
+background:linear-gradient(rgba(2,6,23,0.8),rgba(2,6,23,0.8)),
+url('../images/esports-bg.jpg');
+background-size:cover;
+background-position:center;
 }
 
 .hero h1{
-font-size:42px;
-margin-bottom:15px;
+font-size:48px;
+margin-bottom:20px;
+color:#22c55e;
+text-shadow:0 0 10px #22c55e;
 }
 
 .hero p{
-font-size:18px;
-margin-bottom:20px;
+font-size:20px;
+margin-bottom:30px;
 color:#cbd5f5;
 }
-
 
 /* Features Section */
 
