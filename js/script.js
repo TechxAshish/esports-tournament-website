@@ -246,3 +246,19 @@ alert("Payment Successful! You are registered for " + tournamentName);
 });
 
 });
+/* After saving player in LocalStorage */
+
+localStorage.setItem("player", JSON.stringify(player));
+
+/* Send Email (Optional) */
+emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
+    username: username,
+    email: email,
+    gamename: gamename
+}).then(function(response){
+    // Redirect to thank you page
+    window.location.href = "thankyou.html";
+}, function(error){
+    // Even if email fails, still redirect
+    window.location.href = "thankyou.html";
+});
