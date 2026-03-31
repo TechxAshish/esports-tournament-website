@@ -28,6 +28,9 @@ align-items:center;
 padding:20px;
 background:#020617;
 border-bottom:2px solid #22c55e;
+position:sticky;
+top:0;
+z-index:100;
 }
 
 .logo{
