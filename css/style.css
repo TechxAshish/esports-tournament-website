@@ -354,3 +354,43 @@ transform:translateY(-10px) scale(1.05);
 border-color:#22c55e;
 box-shadow:0 0 15px #22c55e;
 }
+
+.bracket-section{
+padding:80px 20px;
+text-align:center;
+}
+
+.bracket-container{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.round{
+background:#020617;
+padding:20px;
+border-radius:10px;
+border:1px solid #334155;
+width:220px;
+}
+
+.round h3{
+color:#22c55e;
+margin-bottom:20px;
+}
+
+.match{
+background:#1e293b;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #334155;
+transition:0.3s;
+}
+
+.match:hover{
+border-color:#22c55e;
+transform:scale(1.05);
+}
