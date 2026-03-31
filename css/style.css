@@ -317,16 +317,35 @@ border-color:#22c55e;
 /* Glowing Button */
 
 .btn{
+display:inline-block;
+padding:12px 25px;
 background:#22c55e;
 color:black;
-padding:12px 25px;
+font-weight:bold;
 border-radius:6px;
 text-decoration:none;
-font-weight:bold;
 transition:0.3s;
+box-shadow:0 0 10px #22c55e;
 }
 
 .btn:hover{
 background:#16a34a;
-box-shadow:0 0 10px #22c55e;
+box-shadow:0 0 20px #22c55e,0 0 40px #22c55e;
+transform:scale(1.05);
+}
+.tournament-card{
+background:#1e293b;
+padding:20px;
+width:250px;
+border-radius:10px;
+transition:0.4s;
+border:1px solid #334155;
+position:relative;
+overflow:hidden;
+}
+
+.tournament-card:hover{
+transform:translateY(-10px) scale(1.05);
+border-color:#22c55e;
+box-shadow:0 0 15px #22c55e;
 }
