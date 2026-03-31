@@ -1,5 +1,4 @@
 // Registration System
-
 const registerForm = document.getElementById("registerForm");
 
 if(registerForm){
@@ -22,26 +21,23 @@ gamename: gamename
 
 localStorage.setItem("player", JSON.stringify(player));
 
-// emailjs part
-  emailjs.send("service_j073d88","template_naxj5lf",{
+/* Send Email */
 
+emailjs.send("service_j073d88","template_naxj5lf",{
 username: username,
 email: email,
 gamename: gamename
+}).then(function(response){
 
-}).then(function(){
+alert("Registration Successful! Email Sent.");
 
-console.log("Email Sent Successfully");
+window.location.href = "login.html";
 
 }, function(error){
 
-console.log("Email Failed", error);
+alert("Registration saved but email failed.");
 
 });
-  
-alert("Registration Successful!");
-
-window.location.href = "login.html";
 
 });
 
