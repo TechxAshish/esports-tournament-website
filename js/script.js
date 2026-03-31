@@ -73,6 +73,37 @@ alert("Invalid Email or Password");
 });
 
 }
+const loginForm = document.getElementById("loginForm");
+
+if(loginForm){
+
+loginForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+let validUser = users.find(user => user.email === email && user.password === password);
+
+if(validUser){
+
+localStorage.setItem("loggedInUser", JSON.stringify(validUser));
+
+alert("Login Successful!");
+
+window.location.href = "profile.html";
+
+}else{
+
+alert("Invalid Email or Password");
+
+}
+
+});
+}
 // Display Player Profile
 
 const playerName = document.getElementById("playerName");
