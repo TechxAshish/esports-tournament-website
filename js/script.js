@@ -22,6 +22,23 @@ gamename: gamename
 
 localStorage.setItem("player", JSON.stringify(player));
 
+// emailjs part
+  emailjs.send("service_j073d88","template_naxj5lf",{
+
+username: username,
+email: email,
+gamename: gamename
+
+}).then(function(){
+
+console.log("Email Sent Successfully");
+
+}, function(error){
+
+console.log("Email Failed", error);
+
+});
+  
 alert("Registration Successful!");
 
 window.location.href = "login.html";
@@ -29,6 +46,7 @@ window.location.href = "login.html";
 });
 
 }
+//end of emailjs
 // Login System
 
 const loginForm = document.getElementById("loginForm");
