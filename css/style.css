@@ -128,7 +128,10 @@ border-color:#22c55e;
 margin-bottom:10px;
 }
 
-
+.register-btn{
+position: relative;
+z-index: 10;
+}
 /* Footer */
 
 footer{
