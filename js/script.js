@@ -395,3 +395,11 @@ alert("Registering for " + tournament + " | Entry Fee ₹" + fee);
 });
 
 });
+
+function registerTournament(id){
+
+localStorage.setItem("selectedTournament", id);
+
+window.location.href = "tournament-register.html";
+
+}
