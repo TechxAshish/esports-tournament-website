@@ -1,35 +1,41 @@
-const express = require('express');
+const express = require("express");
+
+const Tournament = require("../models/tournament");
+
+const auth = require("../middleware/auth");
+
 const router = express.Router();
-const Tournament = require('../models/Tournament');
-const auth = require('../middleware/auth');
 
-// CREATE TOURNAMENT
-router.post('/', auth, async (req, res) => {
-  try {
-    const tournament = new Tournament(req.body);
-    await tournament.save();
-    res.json(tournament);
-  } catch (err) {
-    res.status(500).send('Server error');
-  }
+
+// Create Tournament
+
+router.post("/create", auth, async(req,res)=>{
+
+try{
+
+const tournament = new Tournament(req.body);
+
+await tournament.save();
+
+res.json(tournament);
+
+}catch(err){
+
+res.status(500).json(err);
+
+}
+
 });
 
-// GET ALL TOURNAMENTS
-router.get('/', async (req, res) => {
-  const tournaments = await Tournament.find();
-  res.json(tournaments);
-});
 
-// JOIN TOURNAMENT
-router.post('/join/:id', auth, async (req, res) => {
-  try {
-    const tournament = await Tournament.findById(req.params.id);
-    tournament.participants.push(req.user.id);
-    await tournament.save();
-    res.json(tournament);
-  } catch (err) {
-    res.status(500).send('Server error');
-  }
+// Get All Tournaments
+
+router.get("/", async(req,res)=>{
+
+const tournaments = await Tournament.find();
+
+res.json(tournaments);
+
 });
 
 module.exports = router;
