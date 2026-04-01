@@ -262,3 +262,25 @@ emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
     // Even if email fails, still redirect
     window.location.href = "thankyou.html";
 });
+function registerTournament(tournamentId){
+
+const token = localStorage.getItem("token");
+
+fetch("http://localhost:5000/api/tournament/register/" + tournamentId,{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json",
+"Authorization": token
+}
+
+})
+.then(res=>res.json())
+.then(data=>{
+
+alert(data.message);
+
+});
+
+}
