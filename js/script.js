@@ -320,7 +320,37 @@ button.addEventListener("click", function(){
 const tournamentName = this.dataset.tournament;
 const fee = this.dataset.fee;
 
-alert("You are registering for " + tournamentName + " | Fee: ₹" + fee);
+const token = localStorage.getItem("token");
+
+fetch("https://YOUR_BACKEND_URL/api/tournament/register", {
+
+method: "POST",
+
+headers: {
+"Content-Type": "application/json",
+"Authorization": token
+},
+
+body: JSON.stringify({
+tournament: tournamentName,
+fee: fee
+})
+
+})
+
+.then(res => res.json())
+
+.then(data => {
+
+alert("Tournament registration successful!");
+
+})
+
+.catch(err => {
+
+console.log(err);
+
+});
 
 });
 
