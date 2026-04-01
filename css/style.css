@@ -130,7 +130,8 @@ margin-bottom:10px;
 
 .register-btn{
 position: relative;
-z-index: 10;
+z-index: 1000;
+cursor: pointer;
 }
 /* Footer */
 
