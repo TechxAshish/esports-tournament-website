@@ -460,3 +460,10 @@ window.location.href="thankyou.html";
 });
 
 }
+function registerTournament(tournamentId){
+
+localStorage.setItem("selectedTournament", tournamentId);
+
+window.location.href = "payment.html";
+
+}
