@@ -467,3 +467,53 @@ localStorage.setItem("selectedTournament", tournamentId);
 window.location.href = "payment.html";
 
 }
+const paymentForm = document.getElementById("paymentForm");
+
+if(paymentForm){
+
+paymentForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const playerName = document.getElementById("playerName").value;
+const email = document.getElementById("email").value;
+const bankName = document.getElementById("bankName").value;
+const accountNumber = document.getElementById("accountNumber").value;
+const ifsc = document.getElementById("ifsc").value;
+
+const tournamentId = localStorage.getItem("selectedTournament");
+
+fetch("http://localhost:5000/api/tournament/register",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body: JSON.stringify({
+
+playerName,
+email,
+bankName,
+accountNumber,
+ifsc,
+tournamentId
+
+})
+
+})
+
+.then(res => res.json())
+
+.then(data => {
+
+alert("Payment Successful and Tournament Registered!");
+
+window.location.href = "thankyou.html";
+
+});
+
+});
+
+}
