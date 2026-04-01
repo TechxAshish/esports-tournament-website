@@ -29,3 +29,25 @@ const TournamentSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Tournament", TournamentSchema);
+const mongoose = require("mongoose");
+
+const TournamentSchema = new mongoose.Schema({
+
+name: String,
+
+game: String,
+
+date: Date,
+
+prize: String,
+
+registeredPlayers: [
+{
+type: mongoose.Schema.Types.ObjectId,
+ref: "User"
+}
+]
+
+});
+
+module.exports = mongoose.model("Tournament", TournamentSchema);
