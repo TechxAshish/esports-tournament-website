@@ -1,20 +1,5 @@
 // Registration System
 const registerForm = document.getElementById("registerForm");
-const registerButtons = document.querySelectorAll(".register-btn");
-registerButtons.forEach(button => {
-
-button.addEventListener("click", function(){
-
-const tournamentName = this.dataset.tournament;
-const fee = this.dataset.fee;
-
-alert("You are registering for " + tournamentName + " | Fee: ₹" + fee);
-
-});
-
-});
-
-
 
 if(registerForm){
 
@@ -326,3 +311,17 @@ console.error("Error:", error);
 });
 
 }
+
+const registerButtons = document.querySelectorAll(".register-btn");
+registerButtons.forEach(button => {
+
+button.addEventListener("click", function(){
+
+const tournamentName = this.dataset.tournament;
+const fee = this.dataset.fee;
+
+alert("You are registering for " + tournamentName + " | Fee: ₹" + fee);
+
+});
+
+});
