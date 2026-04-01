@@ -166,7 +166,20 @@ document.getElementById("displayTeam").innerHTML =
 }
 
 displayTeam();
-// Tournament Registration System
+// Tournament Registration System//
+document.querySelectorAll(".register-btn").forEach(btn => {
+
+btn.addEventListener("click", function(){
+
+const tournament = this.dataset.tournament;
+const fee = this.dataset.fee;
+
+alert("Registering for " + tournament + " | Fee ₹" + fee);
+
+});
+
+});
+//Same but editable
 
 let registerButtons = document.querySelectorAll(".register-btn");
 
