@@ -284,3 +284,30 @@ alert(data.message);
 });
 
 }
+function registerTournament(tournamentId){
+
+const token = localStorage.getItem("token");
+
+fetch("http://localhost:5000/api/tournament/register/" + tournamentId, {
+
+method: "POST",
+
+headers:{
+"Content-Type":"application/json",
+"Authorization": token
+}
+
+})
+.then(res => res.json())
+.then(data => {
+
+alert(data.message);
+
+})
+.catch(error => {
+
+console.error("Error:", error);
+
+});
+
+}
