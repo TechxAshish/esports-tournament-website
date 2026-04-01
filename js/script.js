@@ -425,3 +425,38 @@ window.location.href = "payment.html";
 
 }
 
+function completePayment(){
+
+const teamName = localStorage.getItem("teamName");
+const playerName = localStorage.getItem("playerName");
+const email = localStorage.getItem("email");
+const tournamentId = localStorage.getItem("selectedTournament");
+
+fetch("http://localhost:5000/api/tournament/register",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body: JSON.stringify({
+
+teamName,
+playerName,
+email,
+tournamentId
+
+})
+
+})
+.then(res => res.json())
+.then(data => {
+
+alert("Tournament Registration Successful!");
+
+window.location.href="thankyou.html";
+
+});
+
+}
