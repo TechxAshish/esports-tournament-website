@@ -51,3 +51,11 @@ ref: "User"
 });
 
 module.exports = mongoose.model("Tournament", TournamentSchema);
+
+registeredPlayers:[
+{
+teamName:String,
+playerName:String,
+email:String
+}
+]
