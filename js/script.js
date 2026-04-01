@@ -1,5 +1,6 @@
 // Registration System
 const registerForm = document.getElementById("registerForm");
+const registerButtons = document.querySelectorAll(".register-btn");
 
 if(registerForm){
 
