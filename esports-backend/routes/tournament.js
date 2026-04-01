@@ -39,3 +39,32 @@ res.json(tournaments);
 });
 
 module.exports = router;
+
+// Registration code
+router.post("/register/:tournamentId", auth, async(req,res)=>{
+
+try{
+
+const tournament = await Tournament.findById(req.params.tournamentId);
+
+if(!tournament){
+return res.status(404).json({message:"Tournament not found"});
+}
+
+if(tournament.registeredPlayers.includes(req.user.id)){
+return res.json({message:"Already registered"});
+}
+
+tournament.registeredPlayers.push(req.user.id);
+
+await tournament.save();
+
+res.json({message:"Tournament Registration Successful"});
+
+}catch(error){
+
+res.status(500).json(error);
+
+}
+
+});
