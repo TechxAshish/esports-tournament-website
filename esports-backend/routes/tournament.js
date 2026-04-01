@@ -68,3 +68,30 @@ res.status(500).json(error);
 }
 
 });
+router.post("/register", async(req,res)=>{
+
+try{
+
+const {teamName, playerName, email, tournamentId} = req.body;
+
+const tournament = await Tournament.findById(tournamentId);
+
+tournament.registeredPlayers.push({
+
+teamName,
+playerName,
+email
+
+});
+
+await tournament.save();
+
+res.json({message:"Registration Successful"});
+
+}catch(error){
+
+res.status(500).json(error);
+
+}
+
+});
