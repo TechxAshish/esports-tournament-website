@@ -59,3 +59,35 @@ playerName:String,
 email:String
 }
 ]
+const mongoose = require("mongoose");
+
+const TournamentSchema = new mongoose.Schema({
+
+name: String,
+
+game: String,
+
+date: Date,
+
+prize: String,
+
+registeredPlayers:[
+
+{
+
+playerName:String,
+email:String,
+
+payment:{
+bankName:String,
+accountNumber:String,
+ifsc:String
+}
+
+}
+
+]
+
+});
+
+module.exports = mongoose.model("Tournament", TournamentSchema);
