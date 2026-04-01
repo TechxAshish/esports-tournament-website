@@ -95,3 +95,43 @@ res.status(500).json(error);
 }
 
 });
+router.post("/register", async(req,res)=>{
+
+try{
+
+const {playerName,email,bankName,accountNumber,ifsc,tournamentId} = req.body;
+
+const tournament = await Tournament.findById(tournamentId);
+
+if(!tournament){
+
+return res.status(404).json({message:"Tournament not found"});
+
+}
+
+tournament.registeredPlayers.push({
+
+playerName,
+email,
+
+payment:{
+bankName,
+accountNumber,
+ifsc
+}
+
+});
+
+await tournament.save();
+
+res.json({message:"Registration Successful"});
+
+}
+
+catch(error){
+
+res.status(500).json(error);
+
+}
+
+});
