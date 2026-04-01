@@ -403,3 +403,25 @@ localStorage.setItem("selectedTournament", id);
 window.location.href = "tournament-register.html";
 
 }
+const form = document.getElementById("tournamentForm");
+
+if(form){
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const teamName = document.getElementById("teamName").value;
+const playerName = document.getElementById("playerName").value;
+const email = document.getElementById("email").value;
+
+localStorage.setItem("teamName", teamName);
+localStorage.setItem("playerName", playerName);
+localStorage.setItem("email", email);
+
+window.location.href = "payment.html";
+
+});
+
+}
+
