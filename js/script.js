@@ -383,3 +383,15 @@ alert("Registering for " + tournament + " | Entry Fee ₹" + fee);
 });
 
 });
+document.querySelectorAll(".register-btn").forEach(button => {
+
+button.addEventListener("click", function(){
+
+const tournament = this.dataset.tournament;
+const fee = this.dataset.fee;
+
+alert("Registering for " + tournament + " | Entry Fee ₹" + fee);
+
+});
+
+});
