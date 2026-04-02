@@ -73,65 +73,42 @@ alert("Registration saved but email failed.");
 }
 //end of emailjs
 // Login System
-
 const loginForm = document.getElementById("loginForm");
 
 if(loginForm){
 
-loginForm.addEventListener("submit", function(e){
+loginForm.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-let email = document.getElementById("loginEmail").value;
-let password = document.getElementById("loginPassword").value;
+const email = document.getElementById("loginEmail").value;
+const password = document.getElementById("loginPassword").value;
 
-let storedPlayer = JSON.parse(localStorage.getItem("player"));
+const response = await fetch("http://localhost:5000/api/auth/login",{
 
-if(storedPlayer && email === storedPlayer.email && password === storedPlayer.password){
+method:"POST",
 
-alert("Login Successful!");
+headers:{
+"Content-Type":"application/json"
+},
 
-window.location.href = "profile.html";
+body: JSON.stringify({
+email,
+password
+})
 
-}else{
+});
 
-alert("Invalid Email or Password");
+const data = await response.json();
 
-}
+localStorage.setItem("token",data.token);
+
+alert("Login successful");
+
+window.location.href="index.html";
 
 });
 
-}
-const loginForm = document.getElementById("loginForm");
-
-if(loginForm){
-
-loginForm.addEventListener("submit", function(e){
-
-e.preventDefault();
-
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
-
-let users = JSON.parse(localStorage.getItem("users")) || [];
-
-let validUser = users.find(user => user.email === email && user.password === password);
-
-if(validUser){
-
-localStorage.setItem("loggedInUser", JSON.stringify(validUser));
-
-alert("Login Successful!");
-
-window.location.href = "profile.html";
-
-}else{
-
-alert("Invalid Email or Password");
-
-}
-
-});
 }
 // Display Player Profile
 
