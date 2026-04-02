@@ -1,25 +1,43 @@
 // Registration System
-const registerForm = document.getElementById("registerForm");
+const form = document.getElementById("registerForm");
 
-if(registerForm){
+if(form){
 
-registerForm.addEventListener("submit", function(e){
+form.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-let username = document.getElementById("username").value;
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
-let gamename = document.getElementById("gamename").value;
+const username = document.getElementById("username").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const gamename = document.getElementById("gamename").value;
 
-let player = {
-username: username,
-email: email,
-password: password,
-gamename: gamename
-};
+const res = await fetch("http://localhost:5000/api/auth/register",{
 
-localStorage.setItem("player", JSON.stringify(player));
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body: JSON.stringify({
+username,
+email,
+password,
+gamename
+})
+
+});
+
+const data = await res.json();
+
+alert(data.message || "Registration Successful");
+
+window.location.href="login.html";
+
+});
+
+}
 
 /* Send Email */
 
